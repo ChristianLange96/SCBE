@@ -103,7 +103,7 @@ def main():
         a = np.array([5.32, 6.14, 9.38])  # This is from Prb 99 064302
 
         # Creating k-grid
-        n = 10
+        n = 4
         kx_n = n  # Square grid for simplicity
         ky_n = n
         scale = 1
@@ -138,10 +138,10 @@ def main():
             p.join()
 
         results = sorted(results, key=lambda x: x[0])
-        jx_ra = np.array([res[1]["jx_ra"] for res in results]).flatten().reshape(1, -1)
-        jy_ra = np.array([res[1]["jy_ra"] for res in results]).flatten().reshape(1, -1)
-        jx_er = np.array([res[1]["jx_er"] for res in results]).flatten().reshape(1, -1)
-        jy_er = np.array([res[1]["jy_er"] for res in results]).flatten().reshape(1, -1)
+        jx_ra = np.array([res[1]["jx_ra"] for res in results]).flatten().reshape(-1)
+        jy_ra = np.array([res[1]["jy_ra"] for res in results]).flatten().reshape(-1)
+        jx_er = np.array([res[1]["jx_er"] for res in results]).flatten().reshape(-1)
+        jy_er = np.array([res[1]["jy_er"] for res in results]).flatten().reshape(-1)
 
         plotter(jx_ra, jy_ra, jx_er, jy_er)
 
